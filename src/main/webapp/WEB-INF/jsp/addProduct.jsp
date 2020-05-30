@@ -17,10 +17,10 @@
         </div>
 
         <form method="post" action="/admin/addProduct" enctype="multipart/form-data">
-            Enter Book Name: <input type="text" name="bookName"><br><br>
-            Enter Book Price: <input type="text" name="bookPrice"><br><br>
-            Enter Book Author: <input type="text" name="bookAuthor"><br><br>
-            Enter Book Description: <input type="text" name="bookDescription"><br><br>
+            Enter Book Name: <input type="text" name="bookName" required><br><br>
+            Enter Book Price: <input type="text" name="bookPrice" required><br><br>
+            Enter Book Author: <input type="text" name="bookAuthor" required><br><br>
+            Enter Book Description: <input type="text" name="bookDescription" required><br><br>
             Enter Book Image: <input type="file" name="bookImage" class="form:input-large" ><br><br>
             <input type="submit" value="Add Book">
         </form>

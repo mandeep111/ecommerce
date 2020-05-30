@@ -7,13 +7,18 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>--%>
-<%--<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>--%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 
 <html>
 <head>
     <title>All Product List</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
 
 </head>
 <body>
@@ -22,7 +27,7 @@
         let searchCondition = '${searchCondition}';
 
         $('.table').DataTable({
-            "lengthMenu": [[1,2,3,5,10,-1], [1,2,3,5,10, "All"]],
+            "lengthMenu": [[5,10,15,20-1], [5,10,15,20, "All"]],
             "oSearch": {"sSearch": searchCondition}
         });
     });
@@ -56,7 +61,14 @@
                     <td>Rs. ${product.bookPrice}</td>
                     <td>${product.bookAuthor}</td>
                     <td>${product.bookDescription} USD</td>
-                    <td><span class="glyphicon glyphicon-info-sign"></span></td>
+                    <td>
+                        <a class="close" aria-label="Close" href="<spring:url value="/" />">
+                            <span aria-hidden="true">&times;</span>
+                        </a>
+                        <button type="button" class="fa fa-pen">
+                            <span aria-hidden="true"></span>
+                        </button>
+                    </td>
 <%--                    <a href="<spring:url value="/product/viewProduct/${product.bookId}" />"></a>--%>
                 </tr>
             </c:forEach>
