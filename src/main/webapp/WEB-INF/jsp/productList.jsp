@@ -27,7 +27,7 @@
         let searchCondition = '${searchCondition}';
 
         $('.table').DataTable({
-            "lengthMenu": [[5,10,15,20-1], [5,10,15,20, "All"]],
+            "lengthMenu": [[5,10,15,20,-1], [5,10,15,20, "All"]],
             "oSearch": {"sSearch": searchCondition}
         });
     });
@@ -62,18 +62,30 @@
                     <td>${product.bookAuthor}</td>
                     <td>${product.bookDescription} USD</td>
                     <td>
-                        <a class="close" aria-label="Close" href="<spring:url value="/" />">
+<%--                        <input type="button" class="close" aria-label="Close" onclick="deleteProduct(${product.bookId})">--%>
+                        <%--<a class="close" aria-label="Close" href="deleteProduct(${product.bookId})">--%>
+                        <%--    <span aria-hidden="true">&times;</span>--%>
+                        <%--</a>--%>
+                        <button type="button" onclick="deleteProduct(${product.bookId})" aria-label="Close" class="close">
                             <span aria-hidden="true">&times;</span>
-                        </a>
-                        <button type="button" class="fa fa-pen">
-                            <span aria-hidden="true"></span>
                         </button>
+                        <a class="fa fa-pen" href="">
+                            <span aria-hidden="true"></span>
+                        </a>
                     </td>
 <%--                    <a href="<spring:url value="/product/viewProduct/${product.bookId}" />"></a>--%>
                 </tr>
             </c:forEach>
         </table>
 
+        <script type="text/javascript">
+            function deleteProduct(bookId) {
+                let message = confirm("Delete this product?");
+                if (message == true) {
+                    window.location = "${pageContext.request.contextPath}/admin/deleteProduct/"+bookId;
+                }
+            }
+        </script>
         <%@include file="/WEB-INF/views/template/footer.jsp" %>
 </body>
 </html>

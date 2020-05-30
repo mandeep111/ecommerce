@@ -5,7 +5,9 @@ import com.example.ecommerce.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -32,12 +34,12 @@ public class AdminHome {
         return "productList";
     }
 
-    @GetMapping(value = "admin/addProduct")
+    @GetMapping(value = "/admin/addProduct")
     public String addProductPage() {
         return "addProduct";
     }
 
-    @PostMapping(value = "admin/addProduct")
+    @PostMapping(value = "/admin/addProduct")
     public String addProduct (Product product, HttpServletRequest request) {
         bookDao.save(product);
         MultipartFile bookImage = product.getBookImage();
@@ -53,6 +55,12 @@ public class AdminHome {
             }
         }
 
+        return "redirect:/admin/productList";
+    }
+    @GetMapping(value = "/admin/deleteProduct/{bookId}")
+    public String deleteProduct (@PathVariable("bookId") int bookId,Model model) {
+        bookDao.deleteById(bookId);
+        model.addAttribute("blist", bookDao.findAll());
         return "redirect:/admin/productList";
     }
 }
