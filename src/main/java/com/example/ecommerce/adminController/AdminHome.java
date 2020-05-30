@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Optional;
 
 @Controller
 public class AdminHome {
@@ -62,5 +63,18 @@ public class AdminHome {
         bookDao.deleteById(bookId);
         model.addAttribute("blist", bookDao.findAll());
         return "redirect:/admin/productList";
+    }
+
+    @GetMapping(value = "/admin/editProduct/{bookId}")
+    public String editProductPage (@PathVariable("bookId") int bookId, Model model) {
+//        model.addAttribute("book", bookDao.findById(bookId));
+        Product product = bookDao.findById(bookId).orElse(new Product());
+        model.addAttribute("bookName", product.getBookName());
+        model.addAttribute("bookPrice", product.getBookPrice());
+        model.addAttribute("bookAuthor", product.getBookAuthor());
+        model.addAttribute("bookDescription", product.getBookDescription());
+        model.addAttribute("bookId", product.getBookId());
+        return "editProduct";
+
     }
 }

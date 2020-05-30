@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>--%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%--<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 
@@ -69,11 +69,10 @@
                         <button type="button" onclick="deleteProduct(${product.bookId})" aria-label="Close" class="close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <a class="fa fa-pen" href="">
+                        <a class="fa fa-pen" href="${pageContext.request.contextPath}/admin/editProduct/${product.bookId}">
                             <span aria-hidden="true"></span>
                         </a>
                     </td>
-<%--                    <a href="<spring:url value="/product/viewProduct/${product.bookId}" />"></a>--%>
                 </tr>
             </c:forEach>
         </table>
