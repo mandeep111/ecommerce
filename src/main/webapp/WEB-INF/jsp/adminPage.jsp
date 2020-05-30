@@ -11,15 +11,18 @@
     <title>Admin Page</title>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/template/header.jsp"%>
+<%@ include file="/WEB-INF/views/template/header.jsp" %>
 <div class="container">
-    <div class="jumbotron">
-        <h3><a href="/admin/addProduct">Add Product</a> </h3>
-        <span>Add new products from here.</span>
-    </div>
-    <div class="jumbotron">
-        <h3><a href="/admin/productList">View All Products</a> </h3>
-        <span>View all the products from here.</span>
+    <div class="row">
+        <div class="jumbotron col-md-5">
+            <h3><a href="/admin/addProduct">Add Product</a></h3>
+            <span>Add new products from here.</span>
+        </div><div class="col-md-2"></div>
+        <div class="jumbotron col-md-5">
+            <h3><a href="/admin/productList">View All Products</a></h3>
+            <span>View all the products from here.</span>
+        </div>
+
     </div>
 </div>
 

@@ -60,7 +60,7 @@
                     <td>${product.bookName}</td>
                     <td>Rs. ${product.bookPrice}</td>
                     <td>${product.bookAuthor}</td>
-                    <td>${product.bookDescription} USD</td>
+                    <td>${product.bookDescription}</td>
                     <td>
 <%--                        <input type="button" class="close" aria-label="Close" onclick="deleteProduct(${product.bookId})">--%>
                         <%--<a class="close" aria-label="Close" href="deleteProduct(${product.bookId})">--%>
