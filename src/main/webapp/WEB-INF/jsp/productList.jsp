@@ -6,8 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>--%>
-<%--<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 
@@ -53,19 +51,15 @@
                 <th></th>
             </tr>
             </thead>
-            <c:forEach items="${blist}" var="product">
+            <c:forEach var="product" items="${blist}">
                 <tr>
-                    <td><img src="<c:url value="${product.bookId}.png" />" alt="image"
-                             style="width:100%; max-height: 80px"/></td>
+                    <td><img src="${pageContext.request.contextPath}/${product.bookId}.png" alt="image"
+                             style="width:150px; max-height: 100px"/></td>
                     <td>${product.bookName}</td>
                     <td>Rs. ${product.bookPrice}</td>
                     <td>${product.bookAuthor}</td>
                     <td>${product.bookDescription}</td>
                     <td>
-<%--                        <input type="button" class="close" aria-label="Close" onclick="deleteProduct(${product.bookId})">--%>
-                        <%--<a class="close" aria-label="Close" href="deleteProduct(${product.bookId})">--%>
-                        <%--    <span aria-hidden="true">&times;</span>--%>
-                        <%--</a>--%>
                         <button type="button" onclick="deleteProduct(${product.bookId})" aria-label="Close" class="close">
                             <span aria-hidden="true">&times;</span>
                         </button>
