@@ -27,8 +27,9 @@ public class HomeController {
     }
 
     @GetMapping(value = "/addToCart/{bookId}")
-    public String addToCart (@PathVariable("bookId") int bookId, Product product, Cart cart, Model model) {
+    public String addToCart(@PathVariable("bookId") int bookId, Product product, Cart cart, Model model) {
         Product p = bookDao.findById(bookId).orElse(new Product());
+        cart.setQuantity(1);
         cart.setProduct(p);
         cartDao.save(cart);
         model.addAttribute("cartList", cartDao.findAll());
@@ -36,7 +37,7 @@ public class HomeController {
     }
 
     @GetMapping(value = "/cartList")
-    public String cartList (Model model) {
+    public String cartList(Model model) {
         model.addAttribute("cartList", cartDao.findAll());
         return "cartList";
     }
@@ -48,4 +49,18 @@ public class HomeController {
         return "redirect:/cartList";
     }
 
+    @PostMapping(value = "/checkout/{cartId}")
+    public String checkOut(@PathVariable("cartId") int cartId, Model model) {
+        Cart cart = cartDao.findById(cartId).orElse(new Cart());
+
+        int totalPrice = cart.getQuantity() * Integer.parseInt(cart.getProduct().getBookPrice());
+        model.addAttribute("bookName", cart.getProduct().getBookName());
+        model.addAttribute("bookPrice", cart.getProduct().getBookPrice());
+        model.addAttribute("bookAuthor", cart.getProduct().getBookAuthor());
+        model.addAttribute("quantity", cart.getQuantity());
+        model.addAttribute("totalPrice", totalPrice);
+//        System.out.println(quantity);
+        cartDao.deleteById(cartId);
+        return "checkout";
+    }
 }
