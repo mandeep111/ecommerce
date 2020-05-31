@@ -57,7 +57,9 @@
                        <td>${cart.getProduct().bookName}</td>
                        <td>Rs. ${cart.getProduct().bookPrice}</td>
                        <td>${cart.getProduct().bookAuthor}</td>
-                       <td>${cart.getQuantity()}</td>
+                       <td>
+                           <input type="number" name="quantity" min="1" max="5" value="1">
+                       </td>
                        <td>${cart.getProduct().bookDescription}</td>
                        <td>
                            <button type="button" onclick="deleteCart(${cart.id})" aria-label="Close" class="close">

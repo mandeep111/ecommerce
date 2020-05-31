@@ -21,6 +21,7 @@
        <h5>Product Price: ${bookPrice}</h5>
        <h5>Product Quantity: ${quantity}</h5>
        <h5>Total Price: ${totalPrice}</h5>
+       <a href="/">Continue Shopping</a>
    </div>
 </div>
 </body>

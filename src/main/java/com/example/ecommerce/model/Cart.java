@@ -12,9 +12,9 @@ public class Cart {
     @OneToOne(cascade = CascadeType.PERSIST)
     private Product product;
 
-    private int quantity;
+    private String quantity;
 
-    private int totalPrice;
+    private String totalPrice;
 
     public int getId() {
         return id;
@@ -32,19 +32,19 @@ public class Cart {
         this.product = product;
     }
 
-    public int getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public int setQuantity(int quantity) {
-        return quantity;
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
-    public int getTotalPrice() {
+    public String getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(String totalPrice) {
         this.totalPrice = totalPrice;
     }
 }
