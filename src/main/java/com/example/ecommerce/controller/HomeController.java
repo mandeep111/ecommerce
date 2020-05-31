@@ -28,8 +28,6 @@ public class HomeController {
 
     @GetMapping(value = "/addToCart/{bookId}")
     public String addToCart (@PathVariable("bookId") int bookId, Product product, Cart cart, Model model) {
-        cart.setQuantity(2);
-//        cart.setTotalPrice(1200);
         Product p = bookDao.findById(bookId).orElse(new Product());
         cart.setProduct(p);
         cartDao.save(cart);
