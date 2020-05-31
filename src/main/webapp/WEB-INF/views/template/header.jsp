@@ -29,19 +29,20 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
                 <a href="/" class="nav-item nav-link active">Home</a>
-                <a href="#" class="nav-item nav-link">My Cart</a>
+                <a href="/cartList" class="nav-item nav-link">My Cart</a>
                 <a href="#" class="nav-item nav-link">Register</a>
                 <a href="#" class="nav-item nav-link">Login</a>
 <%--                <a class="nav-item nav-link" href="<c:url value="/addProduct" />"> Add Product</a>--%>
             </div>
 
             <div class="navbar-nav ml-auto">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
+<%--                <div class="input-group">--%>
+<%--                    <input type="text" class="form-control" placeholder="Search">--%>
+<%--                    <div class="input-group-append">--%>
+<%--                        <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+                <a href="${pageContext.request.contextPath}/admin">Admin</a>
             </div>
         </div>
     </div>

@@ -1,6 +1,8 @@
 package com.example.ecommerce.controller;
 
-import com.example.ecommerce.BookDao;
+import com.example.ecommerce.dao.BookDao;
+import com.example.ecommerce.dao.CartDao;
+import com.example.ecommerce.model.Cart;
 import com.example.ecommerce.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,8 @@ public class HomeController {
     @Autowired
     private BookDao bookDao;
 
+    @Autowired
+    private CartDao cartDao;
 
     @RequestMapping(value = "/")
     public String home(Model model) {
@@ -22,7 +26,28 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping(value = "/addToCart/{bookId}")
+    public String addToCart (@PathVariable("bookId") int bookId, Product product, Cart cart, Model model) {
+        cart.setQuantity(2);
+//        cart.setTotalPrice(1200);
+        Product p = bookDao.findById(bookId).orElse(new Product());
+        cart.setProduct(p);
+        cartDao.save(cart);
+        model.addAttribute("cartList", cartDao.findAll());
+        return "cartList";
+    }
 
+    @GetMapping(value = "/cartList")
+    public String cartList (Model model) {
+        model.addAttribute("cartList", cartDao.findAll());
+        return "cartList";
+    }
 
+    @GetMapping(value = "/deleteCart/{cartId}")
+    public String deleteCart(@PathVariable("cartId") int cartId, Model model) {
+        cartDao.deleteById(cartId);
+        model.addAttribute("cartList", cartDao.findAll());
+        return "redirect:/cartList";
+    }
 
 }

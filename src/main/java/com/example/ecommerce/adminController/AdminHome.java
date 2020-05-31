@@ -1,6 +1,6 @@
 package com.example.ecommerce.adminController;
 
-import com.example.ecommerce.BookDao;
+import com.example.ecommerce.dao.BookDao;
 import com.example.ecommerce.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Optional;
 
 @Controller
 public class AdminHome {
