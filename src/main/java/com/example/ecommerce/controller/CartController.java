@@ -53,6 +53,7 @@ public class CartController {
         model.addAttribute("bookAuthor", cart.getProduct().getBookAuthor());
         model.addAttribute("quantity", quantity);
         model.addAttribute("totalPrice", totalPrice);
+        model.addAttribute("bookId", cart.getProduct().getBookId());
 //        System.out.println(quantity);
         cartDao.deleteById(cartId);
         return "checkout";
