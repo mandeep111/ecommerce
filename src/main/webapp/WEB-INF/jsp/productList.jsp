@@ -8,7 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
-
 <html>
 <head>
     <title>All Product List</title>
@@ -16,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
-
-
 </head>
 <body>
 <script>
@@ -29,9 +26,7 @@
             "oSearch": {"sSearch": searchCondition}
         });
     });
-
 </script>
-
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
@@ -70,7 +65,6 @@
                 </tr>
             </c:forEach>
         </table>
-
         <script type="text/javascript">
             function deleteProduct(bookId) {
                 let message = confirm("Delete this product?");

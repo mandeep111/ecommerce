@@ -6,11 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%--<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="/WEB-INF/views/template/header.jsp" %>
-
 <html>
 <head>
     <title>Home Page</title>
@@ -24,16 +21,13 @@
             margin: 10px 0 20px;
             color: forestgreen;
         }
-
         h2 span {
             background:#fff;
             padding:0 10px;
         }
     </style>
 </head>
-
 <body>
-
 <div class="container">
         <div>
             <img src="banner.gif" alt = "banner" style="width: 100%; height: 300px"/><div><br></div>
@@ -51,12 +45,8 @@
                <hr>
            </div>
        </c:forEach>
-
-
     </div>
-
     <hr>
-
     <%@include file="/WEB-INF/views/template/footer.jsp" %>
 </div>
 </body>

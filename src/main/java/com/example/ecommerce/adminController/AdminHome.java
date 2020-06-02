@@ -64,7 +64,6 @@ public class AdminHome {
 
     @GetMapping(value = "/admin/editProduct/{bookId}")
     public String editProductPage(@PathVariable("bookId") int bookId, Model model) {
-//        model.addAttribute("book", bookDao.findById(bookId));
         Product product = bookDao.findById(bookId).orElse(new Product());
         model.addAttribute("bookName", product.getBookName());
         model.addAttribute("bookPrice", product.getBookPrice());
@@ -79,7 +78,6 @@ public class AdminHome {
     public String editProduct(@PathVariable("bookId") int bookId, Product book, HttpServletRequest request) {
         Product p = bookDao.findById(bookId).orElse(new Product());
         p.setBookName(book.getBookName());
-//        System.out.println(book.getBookName());
         p.setBookAuthor(book.getBookAuthor());
         p.setBookPrice(book.getBookPrice());
         p.setBookDescription(book.getBookDescription());

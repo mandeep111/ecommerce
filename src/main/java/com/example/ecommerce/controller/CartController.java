@@ -20,7 +20,6 @@ public class CartController {
 
     @GetMapping(value = "/addToCart/{bookId}")
     public String addToCart(@PathVariable("bookId") int bookId, Cart cart, Model model) {
-//        cart.setQuantity(1);
         Product p = bookDao.findById(bookId).orElse(new Product());
 
         cart.setProduct(p);
@@ -54,7 +53,6 @@ public class CartController {
         model.addAttribute("quantity", quantity);
         model.addAttribute("totalPrice", totalPrice);
         model.addAttribute("bookId", cart.getProduct().getBookId());
-//        System.out.println(quantity);
         cartDao.deleteById(cartId);
         return "checkout";
     }

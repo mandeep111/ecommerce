@@ -25,7 +25,6 @@
        <h5>Product Quantity: ${quantity}</h5>
        <h5>Total Price: ${totalPrice}</h5>
        <a href="/"><input class="btn btn-primary" type="submit" value="Go To Home"></a>
-
    </div>
 </div>
 </body>
